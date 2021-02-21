@@ -184,6 +184,10 @@ class DatabaseWrapper(BaseDatabaseWrapper):
 
     @async_unsafe
     def get_new_connection(self, conn_params):
+        print(conn_params)
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.error(conn_params)
         connection = Database.connect(**conn_params)
 
         # self.isolation_level must be set:
