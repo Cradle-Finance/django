@@ -134,7 +134,7 @@ class Field(RegisterLookupMixin):
                  serialize=True, unique_for_date=None, unique_for_month=None,
                  unique_for_year=None, choices=None, help_text='', db_column=None,
                  db_tablespace=None, auto_created=False, validators=(),
-                 error_messages=None):
+                 error_messages=None, permissions=None):
         self.name = name
         self.verbose_name = verbose_name  # May be set by set_attributes_from_name
         self._verbose_name = verbose_name  # Store original for deconstruction
@@ -157,6 +157,7 @@ class Field(RegisterLookupMixin):
         self.db_column = db_column
         self._db_tablespace = db_tablespace
         self.auto_created = auto_created
+        self.permissions = permissions
 
         # Adjust the appropriate creation counter, and save our local copy.
         if auto_created:
